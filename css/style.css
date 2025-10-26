@@ -1,332 +1,901 @@
-/* --- Thiết kế chung & Yêu cầu trình duyệt --- */
+/* --- CÀI ĐẶT CHUNG & FONT --- */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Font chữ hiện đại */
     margin: 0;
     line-height: 1.6;
-    background-color: #f9f9f9;
+    background-color: #ffffff; /* Nền trắng chủ đạo */
     color: #333;
 }
 
-/* --- Menu rõ ràng --- */
-header {
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500; /* Nét chữ mỏng hơn */
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+main {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.module-section {
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.module-section h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* --- HEADER MỚI --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
     background-color: #fff;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
-.main-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
+.main-header .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
-.main-menu .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: #8B4513; /* Màu nâu gỗ */
-}
-.main-menu ul {
+.main-nav ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     margin: 0;
     padding: 0;
 }
-.main-menu ul li a {
-    text-decoration: none;
+.main-nav ul li a {
+    font-size: 0.9rem;
+    font-weight: 500;
     color: #555;
-    font-weight: bold;
-    font-size: 1rem;
     transition: color 0.3s;
+    letter-spacing: 0.5px;
 }
-.main-menu ul li a:hover {
-    color: #8B4513;
+.main-nav ul li a:hover {
+    color: #bfa89e; /* Màu be/nâu nhạt */
 }
-.header-right {
+.header-icons {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.8rem;
+    font-size: 1.1rem;
 }
-.search-bar {
-    display: flex;
-}
-.search-bar input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-right: none;
-    border-radius: 5px 0 0 5px;
-}
-.search-bar button {
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: #8B4513;
-    color: white;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-}
-.cart-icon {
-    font-weight: bold;
-    text-decoration: none;
+.header-icons a {
     color: #333;
+    transition: color 0.3s;
 }
-.cart-icon:hover {
-    color: #8B4513;
+.header-icons a:hover {
+    color: #bfa89e;
 }
 
-/* --- Nút chung --- */
+/* --- NÚT BẤM (BUTTONS) --- */
 .btn {
     display: inline-block;
-    background-color: #8B4513;
+    background-color: #333; /* Nút màu đen */
     color: #fff;
-    padding: 0.8rem 1.8rem;
+    padding: 0.8rem 2.2rem;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 5px; /* Bo góc ít */
     margin-top: 10px;
     cursor: pointer;
-    border: none;
-    font-size: 1rem;
-    transition: background-color 0.3s;
+    border: 2px solid #333;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 .btn:hover {
-    background-color: #a0522d;
+    background-color: #fff;
+    color: #333;
+}
+/* Nút viền */
+.btn-outline {
+    background-color: transparent;
+    color: #333;
+    border: 2px solid #333;
+}
+.btn-outline:hover {
+    background-color: #333;
+    color: #fff;
+}
+.btn-full {
+    width: 100%;
+    box-sizing: border-box; /* Quan trọng */
+    padding: 1rem;
 }
 
-/* --- Trang chủ: Banner --- */
-.slide-banner {
+
+/* --- 1. HERO BANNER --- */
+.hero-banner {
     position: relative;
     text-align: center;
     color: white;
 }
-.slide-banner img {
+.hero-banner img {
     width: 100%;
-    height: 500px; /* Chiều cao cố định cho banner */
-    object-fit: cover; /* Đảm bảo ảnh lấp đầy */
-    filter: brightness(0.6);
+    height: 75vh; /* Chiều cao 75% màn hình */
+    object-fit: cover;
+    filter: brightness(0.7); /* Hơi tối ảnh nền */
 }
-.banner-content {
+.hero-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.banner-content h1 {
+.hero-content h1 {
     font-size: 3rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
 }
-.banner-content p {
-    font-size: 1.25rem;
+.hero-content p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
 }
 
-/* --- Module chung --- */
-.module-section {
-    padding: 3rem 2rem;
-    max-width: 1400px;
-    margin: 2rem auto;
-    text-align: center;
-}
-.module-section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-/* --- Sản phẩm & Tin tức Grid --- */
-.product-grid, .news-grid {
+/* --- 2. DANH MỤC SẢN PHẨM --- */
+.category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+.category-card {
+    position: relative;
+    overflow: hidden;
+}
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.category-card:hover img {
+    transform: scale(1.05);
+}
+.category-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* --- 3. PRODUCT CARD (Tối giản) --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
-.product-card, .news-item {
+.product-card {
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    overflow: hidden;
     text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
-.product-card:hover, .news-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+.product-card a {
+    display: block;
+    overflow: hidden;
 }
-.product-card img, .news-item img {
+.product-card img {
     width: 100%;
-    height: 300px;
+    height: 380px;
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
-.product-card h3, .news-item h3 {
-    font-size: 1.3rem;
-    color: #333;
-    padding: 0 1.5rem;
+.product-card:hover img {
+    transform: scale(1.03);
 }
-.product-card .price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #8B4513;
-    padding: 0 1.5rem;
-}
-.product-card .btn {
-    margin: 1rem 1.5rem 1.5rem;
-}
-.news-item p {
-    padding: 0 1.5rem;
-    color: #666;
-}
-.news-item a {
-    display: inline-block;
-    margin: 0 1.5rem 1.5rem;
-    color: #8B4513;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-/* --- Footer & Tiện ích --- */
-footer {
-    background-color: #333;
-    color: #fff;
+.product-info {
+    padding: 1rem 0;
     text-align: center;
-    padding: 2.5rem 1rem;
-    margin-top: 2rem;
 }
-footer .social-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 0.9rem;
+.product-info h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+.product-info .price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
 }
 
-/* --- Trang Chi Tiết Sản Phẩm --- */
+/* --- 4. KHỐI CONCEPT --- */
+.concept-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background-color: #f9f9f9;
+    margin-top: 3rem;
+}
+.concept-image img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    display: block;
+}
+.concept-content {
+    padding: 4rem;
+    text-align: left;
+}
+.concept-content h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.concept-content h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* --- 5. KHỐI DỊCH VỤ --- */
+.service-block {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #e9e9e9;
+    margin-top: 3rem;
+}
+.service-block h2 {
+    font-size: 1.8rem;
+}
+
+/* --- FOOTER MỚI --- */
+.main-footer {
+    background-color: #f9f9f9;
+    color: #555;
+    padding: 4rem 2.5rem 2rem;
+    margin-top: 3rem;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+.footer-column h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #333;
+    letter-spacing: 0.5px;
+}
+.footer-column a, .footer-column p {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    transition: color 0.3s;
+}
+.footer-column a:hover {
+    color: #bfa89e;
+}
+.footer-column p i {
+    margin-right: 10px;
+    width: 20px;
+}
+.social-icons a {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    display: inline-block;
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    border-top: 1px solid #ddd;
+    padding-top: 2rem;
+}
+
+/* --- TRANG CHI TIẾT SẢN PHẨM --- */
 .product-detail {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    padding: 2rem;
-    background: #fff;
-    max-width: 1200px;
-    margin: 2rem auto;
     text-align: left;
 }
 .product-images img {
     width: 100%;
-    border-radius: 8px;
 }
-.product-info h1 {
-    font-size: 2.5rem;
-    margin-top: 0;
+.product-info-detail h1 {
+    font-size: 2rem;
+    font-weight: 500;
 }
-.product-info .price {
-    font-size: 1.8rem;
-    color: #8B4513;
-    font-weight: bold;
+.product-info-detail .price {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 700;
+    margin: 1rem 0;
 }
 .quantity-selector {
     margin: 1.5rem 0;
 }
 .quantity-selector input {
     width: 60px;
-    padding: 0.5rem;
+    padding: 0.75rem;
     font-size: 1rem;
     text-align: center;
-}
-.social-share {
-    margin-top: 1.5rem;
-}
-.product-reviews {
-    text-align: left;
-}
-.review-form {
-    background: #f4f4f4;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-}
-.review-form input, .review-form textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Quan trọng */
+}
+.product-info-detail .btn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
 }
 
-/* --- Trang Giỏ Hàng --- */
-.cart-page {
+/* --- TRANG GIỎ HÀNG (Thiết kế lại) --- */
+.cart-page h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+}
+.cart-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
     text-align: left;
 }
-.cart-page table {
+.cart-table table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
-.cart-page th, .cart-page td {
-    border: 1px solid #ddd;
-    padding: 1rem;
+.cart-table th, .cart-table td {
+    border-bottom: 1px solid #eee;
+    padding: 1.5rem 0.5rem;
     text-align: left;
     vertical-align: middle;
 }
-.cart-page th {
-    background-color: #f9f9f9;
+.cart-table th {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #888;
+    text-transform: uppercase;
 }
 .cart-item-info {
     display: flex;
     align-items: center;
 }
+.cart-item-info img {
+    width: 90px;
+    height: 110px;
+    object-fit: cover;
+    margin-right: 1rem;
+}
 .cart-quantity-input {
     width: 60px;
-    padding: 0.5rem;
+    padding: 0.75rem;
     text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 .btn-remove {
-    background: #c0392b;
-    color: white;
+    background: none;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
     cursor: pointer;
+    font-size: 1.2rem;
+    color: #888;
 }
 .cart-summary {
-    margin-top: 2rem;
-    background: #fff;
+    background: #f9f9f9;
     padding: 2rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 400px;
-    margin-left: auto;
+    border-radius: 5px;
+}
+.cart-summary h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+.cart-summary .summary-row, .cart-summary .total-price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 .cart-summary .total-price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #8B4513;
-    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
 }
-.coupon-code, .payment-methods {
-    margin-bottom: 1rem;
+.coupon-code {
+    display: flex;
+    margin: 1.5rem 0;
+}
+.coupon-code input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    border-right: none;
+}
+.coupon-code .btn-outline {
+    border-radius: 0 5px 5px 0;
+    margin-top: 0;
+    white-space: nowrap; /* Chống xuống dòng */
 }
 .payment-methods label {
     display: block;
+    margin-bottom: 0.5rem;
 }
 
+
 /* --- Responsive (Đơn giản) --- */
-@media (max-width: 768px) {
-    .main-menu {
-        flex-direction: column;
-        gap: 1rem;
+@media (max-width: 992px) {
+    .main-nav {
+        display: none; /* Ẩn menu đi trên mobile, cần JS để làm menu burger */
     }
-    .header-right {
-        flex-direction: column;
-        width: 100%;
+    .concept-block, .cart-layout {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .category-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 576px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
     }
     .product-detail {
         grid-template-columns: 1fr;
     }
-    .cart-summary {
-        width: 100%;
-        box-sizing: border-box;
+}
+
+/* --- BỔ SUNG CSS CHO CÁC TRANG MỚI --- */
+
+/* --- Banner Tiêu đề trang (Giới thiệu, Tin tức, Liên hệ) --- */
+.page-title-banner {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+}
+.page-title-banner h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* --- Trang Giới thiệu (static-page-content) --- */
+.static-page-content {
+    max-width: 900px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+.static-page-content h2 {
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.static-page-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1rem;
+}
+.content-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+}
+
+/* --- Trang Danh sách Tin tức --- */
+.news-list-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.news-list-item {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Bố cục ảnh bên trái, chữ bên phải */
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3rem;
+}
+.news-list-item:last-child {
+    border-bottom: none;
+}
+.news-image-link img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: opacity 0.3s;
+}
+.news-image-link:hover img {
+    opacity: 0.8;
+}
+.news-content .news-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+.news-content h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+.news-content h2 a:hover {
+    color: #bfa89e;
+}
+.news-content .news-summary {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+.btn-readmore {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    margin-top: 1rem;
+    display: inline-block;
+}
+.btn-readmore:hover {
+    color: #bfa89e;
+}
+
+/* --- Trang Chi tiết Tin tức --- */
+.article-detail-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Nội dung 3 phần, tin liên quan 1 phần */
+    gap: 3rem;
+    max-width: 1200px;
+    text-align: left;
+}
+.article-content h1 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+.article-content .news-category {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 1px;
+}
+.article-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+.social-share {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+.social-share strong {
+    margin-right: 1rem;
+}
+.social-share a {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    color: #555;
+}
+.social-share a:hover {
+    color: #bfa89e;
+}
+
+/* Tin liên quan */
+.related-news h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+.related-news-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+.related-news-item img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.related-news-item a:hover {
+    color: #bfa89e;
+}
+
+/* --- Trang Liên hệ --- */
+.contact-page-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    text-align: left;
+}
+.contact-info h3, .contact-form h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+.contact-info p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+.contact-info p i {
+    margin-right: 10px;
+    width: 20px;
+    color: #bfa89e;
+}
+.map-container {
+    margin-top: 2rem;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Quan trọng */
+}
+.form-group textarea {
+    resize: vertical;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #bfa89e;
+    outline: none;
+}
+
+/* --- Responsive cho các trang mới --- */
+@media (max-width: 992px) {
+    .article-detail-container, .contact-page-container {
+        grid-template-columns: 1fr;
     }
+    .related-news {
+        margin-top: 3rem;
+        border-top: 1px solid #eee;
+        padding-top: 2rem;
+    }
+}
+@media (max-width: 768px) {
+    .news-list-item {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .news-image-link img {
+        height: 200px;
+    }
+}
+
+/* --- BỔ SUNG CSS CHO KHỐI TIN TỨC TRANG CHỦ --- */
+
+.news-grid-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.news-card-home {
+    background-color: #fff;
+    text-align: left;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-card-home:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.news-card-image {
+    display: block;
+    overflow: hidden;
+}
+
+.news-card-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.news-card-home:hover .news-card-image img {
+    transform: scale(1.05);
+}
+
+.news-card-content {
+    padding: 1.5rem;
+}
+
+.news-card-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.news-card-content h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.news-card-content h3 a:hover {
+    color: #bfa89e;
+}
+
+.news-card-summary {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- BỔ SUNG CSS CHO BỘ LỌC TRANG SẢN PHẨM --- */
+
+.category-filters {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1.5rem;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    color: #555;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #f4f4f4;
+}
+
+/* Định dạng cho nút đang được chọn */
+.filter-btn.active {
+    background-color: #333;
+    color: #fff;
+}
+
+/* --- BỔ SUNG CSS CĂN CHỈNH GIỎ HÀNG (Dán vào cuối file style.css) --- */
+
+/* Căn lề trái cho tiêu đề cột "Sản phẩm" (đã đúng) */
+.cart-table th:first-child {
+    text-align: left;
+}
+
+/* Căn lề PHẢI cho các tiêu đề cột số */
+.cart-table th:nth-child(2), /* Đơn giá */
+.cart-table th:nth-child(4)  /* Thành tiền */ {
+    text-align: right;
+}
+
+/* Căn lề GIỮA cho tiêu đề cột số lượng và xóa */
+.cart-table th:nth-child(3), /* Số lượng */
+.cart-table th:nth-child(5)  /* Xóa */ {
+    text-align: center;
+}
+
+/* Căn lề PHẢI cho các ô dữ liệu giá */
+.cart-table td:nth-child(2), /* Ô Đơn giá */
+.cart-table td:nth-child(4)  /* Ô Thành tiền */ {
+    text-align: right;
+}
+
+/* Căn lề GIỮA cho ô số lượng và ô xóa */
+.cart-table td:nth-child(3), /* Ô Số lượng */
+.cart-table td:nth-child(5)  /* Ô Xóa */ {
+    text-align: center;
+}
+
+/* Đảm bảo ô input số lượng cũng ở giữa */
+.cart-quantity-input {
+    margin: 0 auto;
+}
+
+/* --- BỔ SUNG CSS CHO MÔ TẢ SẢN PHẨM --- */
+
+.product-info .product-summary {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+    /* Giữ cho text ở giữa */
+    text-align: center;
+    /* Giới hạn 2 dòng */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.7rem; /* (0.9rem * 1.6 line-height * 2 lines) - Cần điều chỉnh nếu font-size/line-height thay đổi */
+}
+
+/* Căn lề lại cho tên và giá */
+.product-info h3 {
+    margin-bottom: 0;
+}
+.product-info .price {
+    margin-top: 0.5rem;
+}
+
+/* --- BỔ SUNG CSS CHO SUMMARY TRANG CHI TIẾT SẢN PHẨM --- */
+
+.product-summary-detail {
+    font-size: 1.05rem; /* Hơi to hơn text thường */
+    font-weight: 500; /* Hơi đậm (semi-bold) */
+    color: #444;
+    line-height: 1.7;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee; /* Tách biệt với mô tả chi tiết */
+    padding-bottom: 2rem;
+}
+
+/* Định dạng cho phần mô tả chi tiết (đã chuyển thành div) */
+#product-desc p,
+#product-desc ul {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+#product-desc ul {
+    padding-left: 20px;
+}
+#product-desc li {
+    margin-bottom: 0.5rem;
 }

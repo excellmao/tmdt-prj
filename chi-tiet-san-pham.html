@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">MAKE MY HOME</a>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">TRANG CHỦ</a></li>
+            <li><a href="gioi-thieu.html">GIỚI THIỆU</a></li>
+            <li><a href="san-pham.html">SẢN PHẨM</a></li>
+            <li><a href="tin-tuc.html">TIN TỨC</a></li>
+            <li><a href="lien-he.html">LIÊN HỆ</a></li>
+        </ul>
+    </nav>
+    <div class="header-icons">
+        <a href="gio-hang.html" class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            (<span id="cart-count">0</span>)
+        </a>
+    </div>
+</header>
+
+<main>
+    <section class="product-detail module-section">
+        <div class="product-images">
+            <img src="" alt="" id="product-img">
+        </div>
+        <div class="product-info-detail">
+            <h1 id="product-name"></h1>
+            <p class="product-code">Mã sản phẩm: <span id="product-id"></span></p>
+            <p class="price" id="product-price" data-price="0"></p>
+
+            <p class="product-summary-detail" id="product-summary"></p>
+
+            <h2>Mô tả chi tiết</h2>
+
+            <div id="product-desc"></div>
+
+            <div class="quantity-selector">
+                <label for="quantity">Số lượng:</label>
+                <input type="number" id="quantity" value="1" min="1">
+            </div>
+
+            <button class="btn" id="add-to-cart-btn">THÊM VÀO GIỎ</button>
+        </div>
+    </section>
+
+    <section class="product-reviews module-section" style="padding-top: 0;">
+        <h2>ĐÁNH GIÁ SẢN PHẨM</h2>
+        <div class="review-item">
+            <strong>Nguyễn Văn A</strong>
+            <p>Sản phẩm rất đẹp, êm ái. Giao hàng nhanh. Rất hài lòng!</p>
+        </div>
+        <form class="review-form" id="review-form">
+            <h3>Gửi đánh giá của bạn</h3>
+            <input type="text" placeholder="Tên của bạn" required id="review-name">
+            <textarea placeholder="Viết nhận xét..." required id="review-text"></textarea>
+            <button type="submit" class="btn">Gửi</button>
+        </form>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div class="footer-column">
+            <h4>VỀ CHÚNG TÔI</h4>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="#">Hệ thống cửa hàng</a>
+            <a href="lien-he.html">Liên hệ</a>
+        </div>
+        <div class="footer-column">
+            <h4>HỖ TRỢ KHÁCH HÀNG</h4>
+            <a href="#">Chính sách đổi trả</a>
+            <a href="#">Chính sách bảo hành</a>
+            <a href="#">Hướng dẫn mua hàng</a>
+        </div>
+        <div class="footer-column">
+            <h4>LIÊN HỆ</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123, Đường ABC, Q.1, TP. HCM</p>
+            <p><i class="fas fa-phone"></i> 1900 1234</p>
+            <p><i class="fas fa-envelope"></i> support@makemyhome.vn</p>
+        </div>
+        <div class="footer-column">
+            <h4>THEO DÕI CHÚNG TÔI</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Make My Home (Demo). All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/data.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Lấy id sản phẩm từ URL (ví dụ: ?id=sf001)
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('id');
+
+        // 2. Tìm sản phẩm trong mảng productData (từ data.js)
+        const product = productData.find(p => p.id === productId);
+
+        // 3. Nếu không tìm thấy, thông báo lỗi (hoặc quay về trang chủ)
+        if (!product) {
+            document.querySelector('main').innerHTML = '<h1>Không tìm thấy sản phẩm</h1>';
+            return;
+        }
+
+        // 4. Điền thông tin sản phẩm vào HTML
+        document.title = product.name; // Cập nhật tiêu đề trang web
+        document.getElementById('product-img').src = product.img;
+        document.getElementById('product-img').alt = product.name;
+        document.getElementById('product-name').textContent = product.name;
+        document.getElementById('product-id').textContent = product.id;
+        document.getElementById('product-price').textContent = formatCurrency(product.price);
+        document.getElementById('product-price').dataset.price = product.price;
+
+        // --- DÒNG MỚI ĐỂ THÊM SUMMARY ---
+        document.getElementById('product-summary').textContent = product.summary;
+
+        // Dòng này đã có từ lần sửa trước
+        document.getElementById('product-desc').innerHTML = product.description || product.summary;
+
+        // 5. Gắn sự kiện "Thêm vào giỏ" cho nút
+        // Sử dụng hàm addToCart từ file main.js
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            addToCart(product.id, product.name, product.price, product.img, quantity);
+        });
+        // 6. (MỚI) XỬ LÝ FORM ĐÁNH GIÁ
+        const reviewForm = document.getElementById('review-form');
+        if (reviewForm) {
+            reviewForm.addEventListener('submit', (event) => {
+                // 1. Ngăn không cho trang tải lại
+                event.preventDefault();
+
+                // 2. Hiển thị thông báo thành công
+                alert('Đã gửi đánh giá thành công!');
+
+                // 3. (Tùy chọn) Xóa nội dung đã nhập trong form
+                document.getElementById('review-name').value = '';
+                document.getElementById('review-text').value = '';
+            });
+        }
+    });
+</script>
+</body>
+</html>

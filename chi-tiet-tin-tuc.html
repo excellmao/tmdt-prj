@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết tin tức</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">MAKE MY HOME</a>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">TRANG CHỦ</a></li>
+            <li><a href="gioi-thieu.html">GIỚI THIỆU</a></li>
+            <li><a href="san-pham.html">SẢN PHẨM</a></li>
+            <li><a href="tin-tuc.html">TIN TỨC</a></li>
+            <li><a href="lien-he.html">LIÊN HỆ</a></li>
+        </ul>
+    </nav>
+    <div class="header-icons">
+        <a href="gio-hang.html" class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            (<span id="cart-count">0</span>)
+        </a>
+    </div>
+</header>
+
+<main>
+    <section class="module-section article-detail-container">
+        <article class="article-content" id="article-content">
+            <p class="news-category" id="news-category"></p>
+            <h1 id="news-title"></h1>
+            <img src="" alt="" class="content-image" id="news-img">
+
+            <div id="news-content-detail"></div>
+
+            <div class="social-share">
+                <strong>Chia sẻ bài viết:</strong>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </article>
+
+        <aside class="related-news">
+            <h2>TIN LIÊN QUAN</h2>
+            <div id="related-news-container">
+            </div>
+        </aside>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div class="footer-column">
+            <h4>VỀ CHÚNG TÔI</h4>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="#">Hệ thống cửa hàng</a>
+            <a href="lien-he.html">Liên hệ</a>
+        </div>
+        <div class="footer-column">
+            <h4>HỖ TRỢ KHÁCH HÀNG</h4>
+            <a href="#">Chính sách đổi trả</a>
+            <a href="#">Chính sách bảo hành</a>
+            <a href="#">Hướng dẫn mua hàng</a>
+        </div>
+        <div class="footer-column">
+            <h4>LIÊN HỆ</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123, Đường ABC, Q.1, TP. HCM</p>
+            <p><i class="fas fa-phone"></i> 1900 1234</p>
+            <p><i class="fas fa-envelope"></i> support@makemyhome.vn</p>
+        </div>
+        <div class="footer-column">
+            <h4>THEO DÕI CHÚNG TÔI</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Make My Home (Demo). All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/data.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Lấy id tin tức từ URL
+        const params = new URLSearchParams(window.location.search);
+        const newsId = params.get('id');
+
+        // 2. Tìm tin tức trong mảng newsData
+        const news = newsData.find(n => n.id === newsId);
+
+        if (!news) {
+            document.querySelector('main').innerHTML = '<h1>Không tìm thấy bài viết</h1>';
+            return;
+        }
+
+        // 3. Điền thông tin vào HTML
+        document.title = news.title;
+        document.getElementById('news-category').textContent = `Chủ đề: ${news.category}`;
+        document.getElementById('news-title').textContent = news.title;
+        document.getElementById('news-img').src = news.img;
+        document.getElementById('news-img').alt = news.title;
+        // Chèn nội dung HTML từ data.js
+        document.getElementById('news-content-detail').innerHTML = news.content;
+
+        // 4. (Tùy chọn) Tải tin liên quan
+        const relatedNewsContainer = document.getElementById('related-news-container');
+        newsData
+            .filter(n => n.id !== newsId) // Lọc bỏ tin đang xem
+            .slice(0, 2) // Lấy 2 tin
+            .forEach(related => {
+                relatedNewsContainer.innerHTML += `
+                        <div class="related-news-item">
+                            <a href="chi-tiet-tin-tuc.html?id=${related.id}"><img src="${related.img}" alt="${related.title}"></a>
+                            <div>
+                                <a href="chi-tiet-tin-tuc.html?id=${related.id}">${related.title}</a>
+                            </div>
+                        </div>
+                    `;
+            });
+    });
+</script>
+</body>
+</html>

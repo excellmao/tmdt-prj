@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Make My Home (Demo)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">MAKE MY HOME</a>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">TRANG CHỦ</a></li>
+            <li><a href="gioi-thieu.html">GIỚI THIỆU</a></li>
+            <li><a href="san-pham.html">SẢN PHẨM</a></li>
+            <li><a href="tin-tuc.html">TIN TỨC</a></li>
+            <li><a href="lien-he.html">LIÊN HỆ</a></li>
+        </ul>
+    </nav>
+    <div class="header-icons">
+        <a href="gio-hang.html" class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            (<span id="cart-count">0</span>)
+        </a>
+    </div>
+</header>
+
+<main>
+    <section class="hero-banner">
+        <img src="https://picsum.photos/seed/minimalist-living/1600/700" alt="Không gian sống tối giản">
+        <div class="hero-content">
+            <h1>TINH TẾ TRONG TỪNG CHI TIẾT</h1>
+            <p>Giải pháp nội thất tối giản cho không gian sống hiện đại</p>
+            <a href="san-pham.html" class="btn">KHÁM PHÁ NGAY</a>
+        </div>
+    </section>
+
+    <section class="module-section category-showcase">
+        <h2>DANH MỤC SẢN PHẨM</h2>
+        <div class="category-grid">
+            <a href="san-pham.html?category=sofa" class="category-card">
+                <img src="https://m.media-amazon.com/images/I/718thyxFyQL._SL1500_.jpg" alt="Sofa">
+                <div class="category-title">SOFA</div>
+            </a>
+
+            <a href="san-pham.html?category=ban" class="category-card">
+                <img src="https://noithatxuatnhapkhau.com/san-pham/ban-go-nguyen-khoi-nha-doi-ban-may-tinh-ban-ban-hoc-ban-dai-treo-tuong-ban-cong-ban-hep-ban-lam-viec/O1CN01QuymDK2JQaGRGYlVU_2217052189416-0-cib.jpg" alt="Bàn">
+                <div class="category-title">BÀN</div>
+            </a>
+
+            <a href="san-pham.html?category=ghe" class="category-card">
+                <img src="https://vuaghego.com/wp-content/uploads/2021/08/ghe-thu-gian-doc-sach-11.jpg" alt="Ghế">
+                <div class="category-title">GHẾ</div>
+            </a>
+
+            <a href="san-pham.html?category=giuong" class="category-card">
+                <img src="https://i.pinimg.com/736x/01/25/11/0125117d098598cf207d81f3c16ffea6.jpg" alt="Giường">
+                <div class="category-title">GIƯỜNG</div>
+            </a>
+        </div>
+    </section>
+
+    <section class="module-section">
+        <h2>SẢN PHẨM BÁN CHẠY</h2>
+        <div class="product-grid" id="featured-product-list">
+        </div>
+    </section>
+
+    <section class="module-section" style="background-color: #f9f9f9;">
+        <h2>TIN TỨC MỚI NHẤT</h2>
+        <div class="news-grid-home" id="latest-news-list">
+        </div>
+        <a href="tin-tuc.html" class="btn" style="margin-top: 2rem;">XEM TẤT CẢ TIN TỨC</a>
+    </section>
+
+    <section class="service-block" style="background-color: #e9e9e9;">
+        <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+        <p>Bạn có câu hỏi hoặc cần tư vấn về sản phẩm? Đừng ngần ngại liên hệ với chúng tôi ngay.</p>
+        <a href="lien-he.html" class="btn">GỬI YÊU CẦU TƯ VẤN</a>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div class="footer-column">
+            <h4>VỀ CHÚNG TÔI</h4>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="#">Hệ thống cửa hàng</a>
+            <a href="lien-he.html">Liên hệ</a>
+        </div>
+        <div class="footer-column">
+            <h4>HỖ TRỢ KHÁCH HÀNG</h4>
+            <a href="#">Chính sách đổi trả</a>
+            <a href="#">Chính sách bảo hành</a>
+            <a href="#">Hướng dẫn mua hàng</a>
+        </div>
+        <div class="footer-column">
+            <h4>LIÊN HỆ</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123, Đường ABC, Q.1, TP. HCM</p>
+            <p><i class="fas fa-phone"></i> 1900 1234</p>
+            <p><i class="fas fa-envelope"></i> support@makemyhome.vn</p>
+        </div>
+        <div class="footer-column">
+            <h4>THEO DÕI CHÚNG TÔI</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Make My Home (Demo). All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<script src="js/data.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        loadFeaturedProducts();
+        loadLatestNews();
+    });
+
+    // Hàm tải 3 sản phẩm bán chạy (ĐÃ CẬP NHẬT)
+    function loadFeaturedProducts() {
+        const container = document.getElementById('featured-product-list');
+        if (!container) return;
+
+        const featuredProducts = productData.slice(0, 3);
+
+        featuredProducts.forEach(product => {
+            const productHTML = `
+                    <div class="product-card" data-category="${product.category}">
+                        <a href="chi-tiet-san-pham.html?id=${product.id}">
+                            <img src="${product.img}" alt="${product.name}">
+                        </a>
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <p class="product-summary">${product.summary}</p>
+                            <p class="price">${formatCurrency(product.price)}</p>
+                        </div>
+                    </div>
+                `;
+            container.innerHTML += productHTML;
+        });
+    }
+
+    // Hàm tải 3 tin tức mới nhất
+    function loadLatestNews() {
+        const container = document.getElementById('latest-news-list');
+        if (!container) return;
+
+        // Lấy 3 tin đầu tiên từ mảng newsData
+        const latestNews = newsData.slice(0, 3);
+
+        latestNews.forEach(news => {
+            const newsHTML = `
+                    <div class="news-card-home">
+                        <a href="chi-tiet-tin-tuc.html?id=${news.id}" class="news-card-image">
+                            <img src="${news.img}" alt="${news.title}">
+                        </a>
+                        <div class="news-card-content">
+                            <p class="news-card-category">${news.category}</p>
+                            <h3><a href="chi-tiet-tin-tuc.html?id=${news.id}">${news.title}</a></h3>
+                            <p class="news-card-summary">${news.summary}</p>
+                        </div>
+                    </div>
+                `;
+            container.innerHTML += newsHTML;
+        });
+    }
+</script>
+</body>
+</html>

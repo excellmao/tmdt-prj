@@ -3,82 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết sản phẩm</title>
+    <title>Sản phẩm - Make My Home (Demo)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<header>
-    <nav class="main-menu">
-        <a href="index.html" class="logo">NỘI THẤT ABC</a>
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">MAKE MY HOME</a>
+    </div>
+    <nav class="main-nav">
         <ul>
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="san-pham.html">Sản phẩm</a></li>
-            <li><a href="tin-tuc.html">Tin tức</a></li>
-            <li><a href="lien-he.html">Liên hệ</a></li>
+            <li><a href="index.html">TRANG CHỦ</a></li>
+            <li><a href="gioi-thieu.html">GIỚI THIỆU</a></li>
+            <li><a href="san-pham.html">SẢN PHẨM</a></li>
+            <li><a href="tin-tuc.html">TIN TỨC</a></li>
+            <li><a href="lien-he.html">LIÊN HỆ</a></li>
         </ul>
-        <div class="header-right">
-            <div class="search-bar">
-                <input type="text" placeholder="Tìm kiếm...">
-                <button>Tìm</button>
-            </div>
-            <a href="gio-hang.html" class="cart-icon">
-                Giỏ hàng (<span id="cart-count">0</span>)
-            </a>
-        </div>
     </nav>
+    <div class="header-icons">
+        <a href="gio-hang.html" class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            (<span id="cart-count">0</span>)
+        </a>
+    </div>
 </header>
 
 <main>
-    <section class="product-detail">
-        <div class="product-images">
-            <img src="https://picsum.photos/600/600?random=2" alt="Sofa Da" id="product-img">
-        </div>
-        <div class="product-info">
-            <h1 id="product-name">Sofa Da Cao Cấp</h1>
-            <p class="product-code">Mã sản phẩm: <span id="product-id">sp001</span></p>
-            <p class="price" id="product-price" data-price="25000000">25.000.000 VNĐ</p>
+    <section class="page-title-banner">
+        <h1>SẢN PHẨM</h1>
+    </section>
 
-            <h2>Mô tả chi tiết</h2>
-            <p>Sofa da cao cấp nhập khẩu, khung gỗ sồi tự nhiên đã qua xử lý. Đệm mút D40 êm ái, chống xẹp lún. Màu sắc tùy chọn.</p>
-
-            <div class="quantity-selector">
-                <label for="quantity">Số lượng:</label>
-                <input type="number" id="quantity" value="1" min="1">
-            </div>
-
-            <button class="btn btn-add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
-
-            <div class="social-share">
-                Chia sẻ: <a href="#">Facebook</a> | <a href="#">Pinterest</a>
-            </div>
+    <section class="module-section" style="padding-top: 1rem; padding-bottom: 0;">
+        <div class="category-filters">
+            <button class="filter-btn active" onclick="filterProducts(this, 'all')" data-filter="all">Tất cả</button>
+            <button class="filter-btn" onclick="filterProducts(this, 'sofa')" data-filter="sofa">Sofa</button>
+            <button class="filter-btn" onclick="filterProducts(this, 'ban')" data-filter="ban">Bàn</button>
+            <button class="filter-btn" onclick="filterProducts(this, 'ghe')" data-filter="ghe">Ghế</button>
+            <button class="filter-btn" onclick="filterProducts(this, 'giuong')" data-filter="giuong">Giường</button>
         </div>
     </section>
 
-    <section class="product-reviews module-section">
-        <h2>Đánh giá sản phẩm</h2>
-        <div class="review-item">
-            <strong>Nguyễn Văn A</strong>
-            <p>Sản phẩm rất đẹp, êm ái. Giao hàng nhanh. Rất hài lòng!</p>
+    <section class="module-section" style="padding-top: 2rem;">
+        <div class="product-grid" id="product-list">
         </div>
-        <form class="review-form">
-            <h3>Gửi đánh giá của bạn</h3>
-            <input type="text" placeholder="Tên của bạn" required>
-            <textarea placeholder="Viết nhận xét..." required></textarea>
-            <button type="submit" class="btn">Gửi</button>
-        </form>
     </section>
 </main>
 
-<footer id="contact">
-    <h3>Liên hệ với chúng tôi</h3>
-    <p>Địa chỉ: 123 Đường ABC, Quận 1, TP. Hồ Chí Minh</p>
-    <p>Hotline: 1900 1234 - Email: info@noithatabc.com</p>
-    <div class="social-links">
-        <a href="#">Facebook</a> | <a href="#">Skype</a> | <a href="#">Zalo</a>
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div class="footer-column">
+            <h4>VỀ CHÚNG TÔI</h4>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="#">Hệ thống cửa hàng</a>
+            <a href="lien-he.html">Liên hệ</a>
+        </div>
+        <div class="footer-column">
+            <h4>HỖ TRỢ KHÁCH HÀNG</h4>
+            <a href="#">Chính sách đổi trả</a>
+            <a href="#">Chính sách bảo hành</a>
+            <a href="#">Hướng dẫn mua hàng</a>
+        </div>
+        <div class="footer-column">
+            <h4>LIÊN HỆ</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123, Đường ABC, Q.1, TP. HCM</p>
+            <p><i class="fas fa-phone"></i> 1900 1234</p>
+            <p><i class="fas fa-envelope"></i> support@makemyhome.vn</p>
+        </div>
+        <div class="footer-column">
+            <h4>THEO DÕI CHÚNG TÔI</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
     </div>
-    <p id="visitor-stats">Đang online: 5 | Tổng truy cập: 12345</p>
+    <div class="footer-bottom">
+        <p>© 2025 Make My Home (Demo). All rights reserved.</p>
+    </div>
 </footer>
 
 <script src="js/main.js"></script>
+
+<script src="js/data.js"></script>
+
+<script>
+    const productListContainer = document.getElementById('product-list');
+
+    // Hàm TẠO HTML cho 1 sản phẩm (Đã có từ lần trước)
+    function createProductHTML(product) {
+        return `
+                <div class="product-card" data-category="${product.category}">
+                    <a href="chi-tiet-san-pham.html?id=${product.id}">
+                        <img src="${product.img}" alt="${product.name}">
+                    </a>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p class="product-summary">${product.summary}</p>
+                        <p class="price">${formatCurrency(product.price)}</p>
+                    </div>
+                </div>
+            `;
+    }
+
+    // Hàm TẢI TẤT CẢ SẢN PHẨM lên trang
+    function loadProducts() {
+        productData.forEach(product => {
+            productListContainer.innerHTML += createProductHTML(product);
+        });
+    }
+
+    // Hàm LỌC SẢN PHẨM (ĐÃ CẬP NHẬT)
+    // 'clickedButton' là 'this' mà chúng ta truyền vào
+    function filterProducts(clickedButton, category) {
+        const products = document.querySelectorAll('#product-list .product-card');
+        const filterButtons = document.querySelectorAll('.category-filters .filter-btn');
+
+        // 1. Lọc danh sách sản phẩm
+        products.forEach(product => {
+            if (category === 'all' || product.dataset.category === category) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+
+        // 2. Cập nhật trạng thái 'active' cho nút
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+
+        if (clickedButton) {
+            // Nếu người dùng nhấn nút
+            clickedButton.classList.add('active');
+        } else {
+            // Nếu trang tự động lọc (từ URL)
+            // Tìm nút có data-filter khớp với category
+            const activeButton = document.querySelector(`.filter-btn[data-filter="${category}"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+    }
+
+    // Tự động tải sản phẩm VÀ KIỂM TRA URL khi trang được mở
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Luôn tải TẤT CẢ sản phẩm (ẩn/hiện bằng CSS sau)
+        loadProducts();
+
+        // 2. (MỚI) Kiểm tra xem có category trên URL không
+        const params = new URLSearchParams(window.location.search);
+        const categoryFromURL = params.get('category');
+
+        if (categoryFromURL) {
+            // 3. Nếu có, tự động gọi hàm lọc
+            // Truyền 'null' vì không có nút nào được nhấn
+            filterProducts(null, categoryFromURL);
+        }
+        // Nếu không có, trang sẽ hiển thị 'Tất cả' như mặc định
+    });
+</script>
 </body>
 </html>

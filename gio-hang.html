@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body onload="loadCartPage()">
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">MAKE MY HOME</a>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">TRANG CHỦ</a></li>
+            <li><a href="gioi-thieu.html">GIỚI THIỆU</a></li>
+            <li><a href="san-pham.html">SẢN PHẨM</a></li>
+            <li><a href="tin-tuc.html">TIN TỨC</a></li>
+            <li><a href="lien-he.html">LIÊN HỆ</a></li>
+        </ul>
+    </nav>
+    <div class="header-icons">
+        <a href="gio-hang.html" class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            (<span id="cart-count">0</span>)
+        </a>
+    </div>
+</header>
+
+<main>
+    <section class="cart-page module-section">
+        <h1>GIỎ HÀNG CỦA BẠN</h1>
+
+        <div class="cart-layout">
+            <div id="cart-container" class="cart-table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th colspan="2">Sản phẩm</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                        <th>Xóa</th>
+                    </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cart-summary">
+                <h3>TÓM TẮT ĐƠN HÀNG</h3>
+                <div class="summary-row">
+                    <span>Tổng tiền hàng:</span>
+                    <span id="cart-subtotal">0 VNĐ</span>
+                </div>
+                <div class="coupon-code">
+                    <input type="text" placeholder="Nhập mã giảm giá">
+                    <button class="btn btn-outline">ÁP DỤNG</button>
+                </div>
+                <div class="payment-methods">
+                    <label><input type="radio" name="payment" checked> Thanh toán khi nhận hàng (COD)</label>
+                    <label><input type="radio" name="payment"> Chuyển khoản ngân hàng</label>
+                </div>
+
+                <div class="total-price">
+                    <strong>Tổng cộng:</strong>
+                    <strong id="cart-total">0 VNĐ</strong>
+                </div>
+
+                <button class="btn btn-full" onclick="checkout()">TIẾN HÀNH THANH TOÁN</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div class="footer-column">
+            <h4>VỀ CHÚNG TÔI</h4>
+            <a href="#">Giới thiệu</a>
+            <a href="#">Hệ thống cửa hàng</a>
+            <a href="#">Liên hệ</a>
+        </div>
+        <div class="footer-column">
+            <h4>HỖ TRỢ KHÁCH HÀNG</h4>
+            <a href="#">Chính sách đổi trả</a>
+            <a href="#">Chính sách bảo hành</a>
+            <a href="#">Hướng dẫn mua hàng</a>
+        </div>
+        <div class="footer-column">
+            <h4>LIÊN HỆ</h4>
+            <p><i class="fas fa-map-marker-alt"></i> 123, Đường ABC, Q.1, TP. HCM</p>
+            <p><i class="fas fa-phone"></i> 1900 1234</p>
+            <p><i class="fas fa-envelope"></i> support@makemyhome.vn</p>
+        </div>
+        <div class="footer-column">
+            <h4>THEO DÕI CHÚNG TÔI</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Make My Home (Demo). All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
