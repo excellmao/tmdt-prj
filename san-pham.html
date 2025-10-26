@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <nav class="main-menu">
+        <a href="index.html" class="logo">NỘI THẤT ABC</a>
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="san-pham.html">Sản phẩm</a></li>
+            <li><a href="tin-tuc.html">Tin tức</a></li>
+            <li><a href="lien-he.html">Liên hệ</a></li>
+        </ul>
+        <div class="header-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button>Tìm</button>
+            </div>
+            <a href="gio-hang.html" class="cart-icon">
+                Giỏ hàng (<span id="cart-count">0</span>)
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="product-detail">
+        <div class="product-images">
+            <img src="https://picsum.photos/600/600?random=2" alt="Sofa Da" id="product-img">
+        </div>
+        <div class="product-info">
+            <h1 id="product-name">Sofa Da Cao Cấp</h1>
+            <p class="product-code">Mã sản phẩm: <span id="product-id">sp001</span></p>
+            <p class="price" id="product-price" data-price="25000000">25.000.000 VNĐ</p>
+
+            <h2>Mô tả chi tiết</h2>
+            <p>Sofa da cao cấp nhập khẩu, khung gỗ sồi tự nhiên đã qua xử lý. Đệm mút D40 êm ái, chống xẹp lún. Màu sắc tùy chọn.</p>
+
+            <div class="quantity-selector">
+                <label for="quantity">Số lượng:</label>
+                <input type="number" id="quantity" value="1" min="1">
+            </div>
+
+            <button class="btn btn-add-to-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+
+            <div class="social-share">
+                Chia sẻ: <a href="#">Facebook</a> | <a href="#">Pinterest</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-reviews module-section">
+        <h2>Đánh giá sản phẩm</h2>
+        <div class="review-item">
+            <strong>Nguyễn Văn A</strong>
+            <p>Sản phẩm rất đẹp, êm ái. Giao hàng nhanh. Rất hài lòng!</p>
+        </div>
+        <form class="review-form">
+            <h3>Gửi đánh giá của bạn</h3>
+            <input type="text" placeholder="Tên của bạn" required>
+            <textarea placeholder="Viết nhận xét..." required></textarea>
+            <button type="submit" class="btn">Gửi</button>
+        </form>
+    </section>
+</main>
+
+<footer id="contact">
+    <h3>Liên hệ với chúng tôi</h3>
+    <p>Địa chỉ: 123 Đường ABC, Quận 1, TP. Hồ Chí Minh</p>
+    <p>Hotline: 1900 1234 - Email: info@noithatabc.com</p>
+    <div class="social-links">
+        <a href="#">Facebook</a> | <a href="#">Skype</a> | <a href="#">Zalo</a>
+    </div>
+    <p id="visitor-stats">Đang online: 5 | Tổng truy cập: 12345</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
